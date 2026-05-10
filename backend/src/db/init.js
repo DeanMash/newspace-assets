@@ -1,6 +1,24 @@
 import { pool } from "./pool.js";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export async function initDb() {
+  // First, create the schema
+  const schemaPath = path.join(__dirname, "../../schema.sql");
+  const schema = fs.readFileSync(schemaPath, "utf-8");
+
+  // Split by semicolon and execute each statement
+  const statements = schema.split(";").filter((stmt) => stmt.trim());
+  for (const statement of statements) {
+    if (statement.trim()) {
+      await pool.query(statement);
+    }
+  }
+
+  // Then run the ALTER statements
   await pool.query(`
     ALTER TABLE payments
     ADD COLUMN IF NOT EXISTS created_at TIMESTAMP NOT NULL DEFAULT NOW();
