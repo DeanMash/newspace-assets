@@ -1,0 +1,139 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f6fa;
+  color: #0f172a;
+  position: relative;
+  min-height: 100vh;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("/logo.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 55vmin;
+  opacity: 0.045;
+  pointer-events: none;
+  z-index: 0;
+}
+.app {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.app-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 4px;
+}
+.card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.row { display: flex; gap: 10px; align-items: center; }
+.stack { display: grid; gap: 8px; max-width: 360px; }
+.assign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  margin-bottom: 14px;
+}
+input, select, button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+}
+button { cursor: pointer; background: #0b2b4a; color: white; border: none; }
+.table {
+  display: grid;
+  grid-template-columns: 1.6fr 1.8fr 1fr 1.2fr 1.2fr 1fr 1fr 1.4fr;
+  gap: 8px;
+}
+.th { font-weight: 700; }
+.table-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: inherit;
+  gap: 8px;
+}
+.timeline {
+  grid-template-columns: 2fr 1fr;
+}
+.two-col {
+  grid-template-columns: 2fr 1fr;
+}
+.status { color: #475569; }
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.payments {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1.5fr 1fr;
+}
+.payments-row {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1.5fr 1fr;
+}
+.table-row button {
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.permissions {
+  grid-template-columns: 1.5fr 1fr 1fr 2fr;
+}
+.permissions-row {
+  grid-template-columns: 1.5fr 1fr 1fr 2fr;
+}
+.events {
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+}
+.events-row {
+  grid-template-columns: 2fr 1.5fr 1fr 1fr;
+}
+.projects {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 2fr 1fr;
+}
+.projects-row {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 2fr 1fr;
+}
+.logs {
+  grid-template-columns: 1.3fr 0.8fr 1.2fr 0.8fr 2.4fr;
+}
+.logs-row {
+  grid-template-columns: 1.3fr 0.8fr 1.2fr 0.8fr 2.4fr;
+}
+.app-footer {
+  margin: 22px 0 10px;
+  padding: 14px 10px;
+  border-top: 1px solid #d8e1eb;
+  text-align: center;
+  color: #334155;
+  font-size: 0.95rem;
+}
+.app-footer p {
+  margin: 4px 0;
+}
